@@ -12,10 +12,10 @@ top_provinces = df.sort_values(["Confirmed_cases", "Death_cases"], ascending = [
 # print(top_provinces)
 
 # # In the first five Provinces
-Province_names = top_provinces['Province_name'].head()
-Confirmed_cases = top_provinces['Confirmed_cases'].head()
-Death_cases = top_provinces['Death_cases'].head()
-Recovered_cases = top_provinces['Recovered_cases'].head()
+Province_names = top_provinces['Province_name'].head(8)
+Confirmed_cases = top_provinces['Confirmed_cases'].head(8)
+Death_cases = top_provinces['Death_cases'].head(8)
+Recovered_cases = top_provinces['Recovered_cases'].head(8)
 
 # # All provinces
 # Province_names = df['Province_name']
@@ -34,6 +34,7 @@ Recovered_cases = top_provinces['Recovered_cases'].head()
 # Using bar chart
 y_pos = np.arange(len(Province_names))
 
+plt.figure(figsize = (12, 6))
 plt.bar(y_pos + 0, Confirmed_cases, width = 0.2, color = 'navy', label = 'Confirmed Cases')
 plt.bar(y_pos + 0.2, Recovered_cases, width = 0.2, color = 'darkcyan', label = 'Recovered Cases')
 plt.bar(y_pos + 0.4, Death_cases, width = 0.2, color = 'skyblue', label = 'Death Cases')

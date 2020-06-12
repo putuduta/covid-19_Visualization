@@ -8,6 +8,8 @@ df = pd.read_csv(r'D:\Covid-19 - Visualization\Data\Case by Provinces - IDN-COVI
 columns = ['Type', 'Features Type', 'ID-number', 'Province_code', 'Features Geometry Type', 'Features Geometry Coordinates']
 df = df.drop(columns, axis = 1)
 
+# print(df.describe())
+
 # Sorting Based on Confirmed Cases and Death cases
 top_provinces = df.sort_values(["Confirmed_cases", "Death_cases"], ascending = [False, False])
 # print(top_provinces)
@@ -29,15 +31,20 @@ plt.figure(figsize = (14, 6))
 
 plt.title('COVID-19 confirmed cases')
 
-# # showing based on confirmed cases
+# showing based on confirmed cases
 sns.barplot(data = top_provinces, x = Province_names, y = Confirmed_cases)
 plt.ylabel('Confirmed Cases')
 plt.xlabel('Province Names')
 
-# showing base on death cases
+# # showing base on death cases
 # sns.barplot(data = top_provinces, x = Province_names, y = Death_cases)
 # plt.ylabel('Death Cases')
 # plt.xlabel('Province Names')
+
+# # Using seaborn bar plot
+# sns.catplot(x = 'Province_name', y = 'Death_cases', data = top_provinces.head(), kind = 'bar')
+
+
 
 
 plt.show()

@@ -9,6 +9,6 @@ df = pd.read_csv(r'D:\Covid-19 - Visualization\Data\data-penambahan-kasus-covid-
 
 # selama tanggal 27 - 31 bulan mei
 sns.relplot(x = 'tanggal', y = 'jumlah', data = df.tail(15), kind = 'line', style = 'diagnosa', hue = 'diagnosa', ci = None)
-# sembuh tertinggi 
+# sembuh tertinggi
 
 plt.show()

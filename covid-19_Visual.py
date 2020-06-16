@@ -11,11 +11,10 @@ df = df.drop(columns, axis = 1)
 top_provinces = df.sort_values(["Confirmed_cases", "Death_cases"], ascending = [False, False])
 # print(top_provinces)
 
-# # In the first five Provinces
-Province_names = top_provinces['Province_name'].head(8)
-Confirmed_cases = top_provinces['Confirmed_cases'].head(8)
-Death_cases = top_provinces['Death_cases'].head(8)
-Recovered_cases = top_provinces['Recovered_cases'].head(8)
+Province_names = top_provinces['Province_name']
+Confirmed_cases = top_provinces['Confirmed_cases']
+Death_cases = top_provinces['Death_cases']
+Recovered_cases = top_provinces['Recovered_cases']
 
 # # All provinces
 # Province_names = df['Province_name']
@@ -39,7 +38,7 @@ plt.bar(y_pos + 0, Confirmed_cases, width = 0.2, color = 'navy', label = 'Confir
 plt.bar(y_pos + 0.2, Recovered_cases, width = 0.2, color = 'darkcyan', label = 'Recovered Cases')
 plt.bar(y_pos + 0.4, Death_cases, width = 0.2, color = 'skyblue', label = 'Death Cases')
 
-plt.xticks(y_pos, Province_names)
+plt.xticks(y_pos, Province_names, rotation = 90)
 plt.xlabel('Province Names')
 plt.ylabel('Cases')
 plt.legend(('Confirmed Cases', 'Recovered Cases', 'Death Cases'))
